@@ -1,0 +1,195 @@
+@import '../../styles/mixins';
+.crew {
+	min-height: 100vh;
+	@include backgroundImage('../../assets/crew/background-crew-mobile.jpg');
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	overflow: hidden;
+
+	h3 {
+		margin-top: 6em;
+		font-size: 1.6rem;
+		line-height: 19px;
+		letter-spacing: 2.7px;
+		align-self: center;
+		span {
+			opacity: 0.5;
+			margin-right: 0.5em;
+		}
+	}
+
+	&__box {
+		display: flex;
+		flex-direction: column;
+
+		&__text {
+			height: 352px;
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			&__info {
+				&__role {
+					font-size: 1.6rem;
+					line-height: 18px;
+					letter-spacing: 2.7px;
+					opacity: 0.5;
+				}
+				&__name {
+					font-size: 2.4rem;
+					line-height: 28px;
+					margin: 0.5em 0;
+				}
+				&__bio {
+					font-size: 1.5rem;
+					line-height: 25px;
+				}
+			}
+
+			&__nav {
+				order: -5;
+				margin-bottom: 3em;
+				span {
+					position: relative;
+					display: inline-block;
+					width: 10px;
+					height: 10px;
+					border: 1px solid white;
+					border-radius: 50%;
+					padding: 1em;
+					margin: 1em;
+					cursor: pointer;
+					&::before {
+						position: absolute;
+						content: '';
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						border-radius: 50%;
+						background-color: #fff;
+						opacity: 0;
+					}
+				}
+			}
+			&__nav span.active::before {
+				opacity: 1;
+			}
+		}
+		&__img {
+			height: 300px;
+			width: 100%;
+			overflow: hidden;
+			order: -10;
+			margin: 3em 0;
+
+			img {
+				display: block;
+				max-height: 100%;
+				width: auto;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.crew {
+		@include backgroundImage('../../assets/crew/background-crew-tablet.jpg');
+
+		h3 {
+			margin: 6em 0 3em;
+			font-size: 2rem;
+			line-height: 24px;
+			letter-spacing: 3.375px;
+		}
+
+		&__box {
+			&__text {
+				text-align: center;
+				height: auto;
+				width: 70%;
+				order: -10;
+				align-self: center;
+				&__info {
+					height: 232px;
+					&__role {
+						font-size: 2.4rem;
+						line-height: 28px;
+					}
+					&__name {
+						font-size: 4rem;
+						line-height: 46px;
+					}
+					&__bio {
+						font-size: 1.6rem;
+						line-height: 28px;
+					}
+				}
+
+				&__nav {
+					order: 10;
+					margin-bottom: 0;
+				}
+			}
+			&__img {
+				height: 532px;
+				order: -10;
+				margin: 3em 0 0;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.crew {
+		@include backgroundImage('../../assets/crew/background-crew-desktop.jpg');
+
+		h3 {
+			font-size: 2.8rem;
+			line-height: 34px;
+			letter-spacing: 4.725px;
+		}
+
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+			&__text {
+				text-align: left;
+				height: auto;
+				width: 55%;
+				// align-self: center;
+				&__info {
+					height: auto;
+					&__role {
+						font-size: 3.2rem;
+						line-height: 37px;
+					}
+					&__name {
+						font-size: 5.6rem;
+						line-height: 64px;
+					}
+					&__bio {
+						font-size: 1.8rem;
+						line-height: 32px;
+						height: 160px;
+					}
+				}
+
+				&__nav {
+					order: 10;
+					margin-bottom: 0;
+				}
+			}
+			&__img {
+				width: 40%;
+
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+	}
+}

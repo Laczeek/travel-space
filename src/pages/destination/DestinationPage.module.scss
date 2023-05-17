@@ -1,0 +1,209 @@
+@import '../../styles/mixins';
+
+.destination {
+	min-height: 100vh;
+	@include backgroundImage('../../assets/destination/background-destination-mobile.jpg');
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	row-gap: 2em;
+
+	&__header {
+		margin-top: 8em;
+		h2 {
+			font-size: 1.6rem;
+			line-height: 19px;
+			letter-spacing: 2.7px;
+			text-transform: uppercase;
+			font-family: 'Barlow Condensed', sans-serif;
+			color: #fff;
+			span {
+				margin-right: 0.5em;
+				opacity: 0.25;
+			}
+		}
+		&__img {
+			margin: 2em 0;
+			img {
+				animation: planetRoll 10s infinite both linear;
+				width: 100%;
+				max-width: 170px;
+				height: auto;
+			}
+		}
+	}
+
+	&__bottom {
+		hr {
+			opacity: 0.25;
+		}
+		&__nav {
+			margin-bottom: 3em;
+			margin-top: 5em;
+			span {
+				position: relative;
+				display: inline-block;
+				cursor: pointer;
+				font-size: 1.4rem;
+				line-height: 17px;
+				color: #fff;
+				padding: 1em;
+				margin: 0 0.5em;
+
+				&::before {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					content: '';
+					height: 3px;
+					width: 100%;
+					background-color: #fff;
+					opacity: 0;
+					transition: opacity 0.3s;
+				}
+				&:hover {
+					&::before {
+						opacity: 1;
+					}
+				}
+			}
+			span.active::before {
+				opacity: 1;
+			}
+		}
+		&__name {
+			font-size: 5.6rem;
+			line-height: 64px;
+		}
+		&__description {
+			font-size: 1.5rem;
+			line-height: 25px;
+			margin-bottom: 2em;
+		}
+		&__info {
+			&__box {
+				margin: 3em 0;
+				&__title {
+					font-size: 1.4rem;
+					line-height: 17px;
+					text-transform: uppercase;
+					color: #d0d6f9;
+					margin-bottom: 1em;
+				}
+				&__content {
+					font-size: 2.8rem;
+					line-height: 32px;
+					text-transform: uppercase;
+					font-family: 'Bellefair', sans-serif;
+				}
+			}
+		}
+	}
+}
+
+@keyframes planetRoll {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (min-width: 768px) {
+	.destination {
+		@include backgroundImage('../../assets/destination/background-destination-tablet.jpg');
+
+		&__header {
+			margin-top: 12em;
+			h2 {
+				font-size: 2rem;
+				line-height: 24px;
+				text-align: left;
+			}
+			&__img {
+				img {
+					max-width: 300px;
+				}
+			}
+		}
+
+		&__bottom {
+			&__nav {
+				span {
+					font-size: 1.6rem;
+					line-height: 19px;
+				}
+			}
+			&__name {
+				font-size: 8rem;
+				line-height: 92px;
+			}
+			&__description {
+				font-size: 1.6rem;
+				line-height: 28px;
+				max-width: 573px;
+				margin: 0 auto 2em;
+			}
+			&__info {
+				display: flex;
+				justify-content: center;
+				column-gap: 6em;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.destination {
+		@include backgroundImage('../../assets/destination/background-destination-desktop.jpg');
+		text-align: left;
+		justify-content: center;
+
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&__header {
+			margin-top: 0;
+			align-self: flex-end;
+			h2 {
+				font-size: 2.8rem;
+				line-height: 34px;
+				letter-spacing: 4.725px;
+			}
+			&__img {
+				margin-top: 10em;
+				img {
+					max-width: 445px;
+				}
+			}
+		}
+
+		&__bottom {
+			align-self: flex-end;
+			max-width: 445px;
+			margin-bottom: 5em;
+			&__nav {
+				span {
+					font-size: 1.6rem;
+					line-height: 19px;
+				}
+			}
+			&__name {
+				font-size: 10rem;
+				line-height: 115px;
+			}
+			&__description {
+				font-size: 1.8rem;
+				line-height: 32px;
+			}
+			&__info {
+				justify-content: flex-start;
+			}
+		}
+	}
+}

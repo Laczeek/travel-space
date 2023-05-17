@@ -1,0 +1,198 @@
+@import '../../styles/mixins';
+.tech {
+	min-height: 100vh;
+	@include backgroundImage('../../assets/technology/background-technology-mobile.jpg');
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+
+	h3 {
+		margin-top: 6em;
+		font-size: 1.6rem;
+		line-height: 19px;
+		letter-spacing: 2.7px;
+		text-align: center;
+
+		span {
+			opacity: 0.5;
+			margin-right: 0.5em;
+		}
+	}
+	&__box {
+		&__top {
+			&__img {
+				margin: 4em 0;
+				img {
+					display: inline-block;
+					width: 100%;
+					height: auto;
+				}
+			}
+		}
+		&__content {
+			text-align: center;
+			padding: 2.4em;
+			&__nav {
+				margin-bottom: 3em;
+				span {
+					position: relative;
+					cursor: pointer;
+					display: inline-flex;
+					justify-content: center;
+					align-items: center;
+					width: 40px;
+					height: 40px;
+					border: 0.5px solid rgba(255, 255, 255, 0.385);
+					border-radius: 50%;
+					font-size: 1.6rem;
+					font-family: 'Bellefair', sans-serif;
+					margin: 0 0.5em;
+					z-index: 1;
+					transition: color 0.3s;
+					&::before {
+						position: absolute;
+						content: '';
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						border-radius: 50%;
+						background-color: #fff;
+						opacity: 0;
+						z-index: -1;
+						transition: opacity 0.3s;
+					}
+					&:hover {
+						color: black;
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+			}
+            &__nav span.active {
+               color: black;
+               &::before {
+                opacity: 1;
+               }
+            }
+			&__text {
+				&__terminology {
+					font-size: 1.4rem;
+					line-height: 17px;
+					text-transform: uppercase;
+				}
+				&__device {
+					margin: 0.5em 0;
+					font-size: 2.4rem;
+					line-height: 28px;
+					font-family: 'Bellefair', sans-serif;
+					font-weight: 400;
+					text-transform: uppercase;
+				}
+				&__description {
+					font-size: 1.5rem;
+					line-height: 25px;
+					font-family: 'Barlow Condensed', sans-serif;
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.tech {
+		@include backgroundImage('../../assets/technology/background-technology-tablet.jpg');
+
+		h3 {
+			padding-left: 2.4em;
+			font-size: 2rem;
+			line-height: 24px;
+			letter-spacing: 3.375px;
+			text-align: left;
+		}
+		&__box {
+			&__content {
+				&__nav {
+					span {
+						width: 60px;
+						height: 60px;
+						font-size: 2.4rem;
+					}
+				}
+				&__text {
+					&__terminology {
+						font-size: 1.6rem;
+						line-height: 19px;
+					}
+					&__device {
+						font-size: 4rem;
+						line-height: 46px;
+					}
+					&__description {
+						margin: 0 auto;
+						font-size: 1.6rem;
+						line-height: 28px;
+						width: 70%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.tech {
+		@include backgroundImage('../../assets/technology/background-technology-desktop.jpg');
+
+		h3 {
+			font-size: 2.8rem;
+			line-height: 34px;
+			letter-spacing: 4.725px;
+		}
+		&__box {
+			display: flex;
+			justify-content: space-between;
+
+			&__top {
+				order: 10;
+				width: 40%;
+
+				&__img {
+					img {
+						width: 100%;
+					}
+				}
+			}
+			&__content {
+				width: 55%;
+				text-align: left;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				&__nav {
+					span {
+						display: flex;
+						width: 80px;
+						height: 80px;
+						font-size: 3.2rem;
+						margin: 0.5em 0;
+					}
+				}
+				&__text {
+					width: 80%;
+					&__device {
+						font-size: 5.6rem;
+						line-height: 64px;
+					}
+					&__description {
+						font-size: 1.8rem;
+						line-height: 32px;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

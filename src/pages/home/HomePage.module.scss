@@ -1,0 +1,136 @@
+@import '../../styles/mixins';
+.home {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	@include backgroundImage('../../assets/home/background-home-mobile.jpg');
+
+	&__text {
+		margin-top: 6em;
+		text-align: center;
+
+		&__title {
+			display: block;
+			font-size: 8rem;
+			line-height: 100px;
+			margin: 0.2em 0;
+		}
+		&__subtitle {
+			font-size: 1.6rem;
+			letter-spacing: 2.7px;
+			line-height: 19px;
+		}
+		&__content {
+			margin-top: 0.5em;
+			margin-bottom: 15%;
+			font-size: 1.5rem;
+			line-height: 25px;
+		}
+	}
+	&__btn {
+		position: relative;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+		background-color: #fff;
+		margin: 0 auto;
+		&::before {
+			position: absolute;
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-color: #ffffff2d;
+			border-radius: 50%;
+			z-index: 0;
+			transition: transform 0.3s ease-in-out;
+		}
+		&:hover {
+			&::before {
+				transform: scale(1.2);
+			}
+		}
+
+		span {
+			text-transform: uppercase;
+			font-size: 2rem;
+			line-height: 23px;
+			font-family: 'Bellefair', sans-serif;
+			letter-spacing: 2.7px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.home {
+		@include backgroundImage('../../assets/home/background-home-tablet.jpg');
+		// justify-content: ;
+		&__text {
+			width: 450px;
+			margin: 6em auto 0;
+			&__title {
+				font-size: 15rem;
+				line-height: 150px;
+			}
+			&__subtitle {
+				font-size: 2rem;
+				letter-spacing: 3.375px;
+				line-height: 24px;
+			}
+			&__content {
+				font-size: 1.6rem;
+				line-height: 28px;
+				margin-bottom: 15%;
+			}
+		}
+		&__btn {
+			width: 242px;
+			height: 242px;
+			background-color: #fff;
+
+			span {
+				font-size: 3.2rem;
+				line-height: 37px;
+
+				letter-spacing: 2px;
+			}
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.home {
+		@include backgroundImage('../../assets/home/background-home-desktop.jpg');
+
+		.wrapper {
+			display: flex;
+			column-gap: 20%;
+		}
+		&__text {
+			text-align: left;
+
+			&__title {
+				line-height: 172px;
+			}
+			&__subtitle {
+				letter-spacing: 4.725px;
+				line-height: 34px;
+			}
+			&__content {
+				margin-bottom: 0;
+				font-size: 1.8rem;
+				line-height: 32px;
+			}
+		}
+		&__btn {
+			align-self: flex-end;
+			width: 274px;
+			height: 274px;
+		}
+	}
+}
